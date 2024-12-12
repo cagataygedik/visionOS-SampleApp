@@ -1,0 +1,23 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def RealityKitComponent "SpotLight"
+    {
+        uniform token info:id = "RealityKit.SpotLight"
+        float intensity = 2000
+
+        def RealityKitStruct "Shadow"
+        {
+        }
+    }
+}
+

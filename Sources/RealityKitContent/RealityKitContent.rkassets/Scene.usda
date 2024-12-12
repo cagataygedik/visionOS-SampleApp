@@ -1,0 +1,562 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (448.0.16.0.3)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Train_Diorama", "ImageTextureMaterial", "Base", "Station", "Terrain", "Tracks", "Train", "Vegetation", "Water"]
+    def "Train_Diorama" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (-1.5707963, 0, 0)
+        }
+        references = @Train Diorama.usdc@
+    )
+    {
+        rel material:binding = </Root/ImageTextureMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        quatf xformOp:orient = (0.70710677, -0.7071067, 0, 0)
+        float3 xformOp:scale = (0.4, 0.4, 0.4)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Base" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Base> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Terrain" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Terrain> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Station" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Station> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Locomotive" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            reorder nameChildren = ["Whistle", "Lights", "Steam", "Locomotive", "Wheel_L_C", "Wheel_L_D", "Wheel_L_E", "Wheel_L_B", "Wheel_L_A", "LocomotiveLights"]
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+
+            def "Steam" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (1.57111, 0.00049495697, 0.08331304)
+                }
+                prepend references = @Steam.usda@
+            )
+            {
+                quatf xformOp:orient = (0.7063898, 0.70659685, 0.029626518, 0.029267607)
+                float3 xformOp:scale = (0.99999994, 0.9999999, 0.99999994)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Lights" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (2.1443986e-7, -1.5707963, 0)
+                }
+                prepend references = @Lights.usda@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, -7.581593e-8, -0.70710677, -7.581586e-8)
+                float3 xformOp:scale = (0.99999994, 0.9999999, 0.99999994)
+                float3 xformOp:translate = (0.0000029206278, -1.4901163e-7, 0.025932662)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def "Whistle" (
+                active = true
+                prepend references = @Whistle.usda@
+            )
+            {
+                quatf xformOp:orient = (0.7063898, 0.70659685, 0.029626518, 0.029267607)
+                float3 xformOp:scale = (0.99999994, 0.9999999, 0.99999994)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+
+        over "PassangerCar1" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassangerCar2" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassangerCar3" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassangerCar4" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassangerCar5" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Tracks" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Tracks> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "TunnelLeft" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Tracks> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "BridgeLeft" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Tracks> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Tunnel_Right" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Tracks> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "BridgeRight" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Tracks> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "Semaphore" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Station> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+
+            over "Semaphore_Green"
+            {
+                over "RedLightOFF" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Root/SemaphoreRedOff> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                }
+
+                over "GreenLightON" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Root/SemaphoreGreenOn> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                }
+            }
+
+            over "Semaphore_Red"
+            {
+                over "RedLightON" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Root/SemaphoreRedOn> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                }
+
+                over "GreenLightOFF" (
+                    prepend apiSchemas = ["MaterialBindingAPI"]
+                )
+                {
+                    rel material:binding = </Root/SemaphoreGreenOff> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                }
+            }
+        }
+
+        over "Vegetation" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Vegetation> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "WaterPlane" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Water> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassengerCar1" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassengerCar2" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassengerCar3" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassengerCar4" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "PassengerCar5" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Train> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+
+        over "River" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Water> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+        }
+    }
+
+    def Material "ImageTextureMaterial"
+    {
+        asset inputs:DiffuseTexture (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-553.48804, 27.916103)
+                    int stackingOrderInSubgraph = 53
+                }
+            }
+        )
+        asset inputs:NormalTexture (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-773.78864, 252.67757)
+                    int stackingOrderInSubgraph = 43
+                }
+            }
+        )
+        float inputs:RoughnessAmount = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-265.52472, 417.77597)
+                    int stackingOrderInSubgraph = 56
+                }
+            }
+        )
+        float inputs:SpecularAmount = 0 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-255.76985, 507.79504)
+                    int stackingOrderInSubgraph = 55
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/ImageTextureMaterial/PBRSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+        def Shader "PBRSurface"
+        {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            float inputs:ambientOcclusion
+            color3f inputs:baseColor.connect = </Root/ImageTextureMaterial/DiffuseImage.outputs:out>
+            float inputs:clearcoat
+            float3 inputs:clearcoatNormal
+            float inputs:clearcoatRoughness
+            color3f inputs:emissiveColor
+            bool inputs:hasPremultipliedAlpha
+            float inputs:metallic
+            float3 inputs:normal.connect = </Root/ImageTextureMaterial/NormalMapDecode.outputs:out>
+            float inputs:opacity
+            float inputs:opacityThreshold
+            float inputs:roughness = 1
+            float inputs:roughness.connect = </Root/ImageTextureMaterial.inputs:RoughnessAmount>
+            float inputs:specular = 0
+            float inputs:specular.connect = </Root/ImageTextureMaterial.inputs:SpecularAmount>
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (86.25, 122.25781)
+            int ui:nodegraph:node:stackingOrder = 31
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["inputs:roughness"]
+        }
+
+        def Shader "NormalMapDecode"
+        {
+            uniform token info:id = "ND_normal_map_decode"
+            float3 inputs:in.connect = </Root/ImageTextureMaterial/NormalImage.outputs:out>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-280.62814, 263.58508)
+            int ui:nodegraph:node:stackingOrder = 43
+        }
+
+        def Shader "NormalImage"
+        {
+            uniform token info:id = "ND_image_vector3"
+            float3 inputs:default
+            asset inputs:file.connect = </Root/ImageTextureMaterial.inputs:NormalTexture>
+            float3 outputs:out
+            float2 ui:nodegraph:node:pos = (-530.0074, 264.91583)
+            int ui:nodegraph:node:stackingOrder = 43
+        }
+
+        def Shader "DiffuseImage"
+        {
+            uniform token info:id = "ND_image_color3"
+            asset inputs:file.connect = </Root/ImageTextureMaterial.inputs:DiffuseTexture>
+            color3f outputs:out
+            float2 ui:nodegraph:node:pos = (-291.5857, 36.46298)
+            int ui:nodegraph:node:stackingOrder = 53
+        }
+    }
+
+    def "Base" (
+        active = true
+        instanceable = true
+        references = </Root/ImageTextureMaterial>
+    )
+    {
+        asset inputs:DiffuseTexture = @Textures/Base Diffuse.jpg@
+        asset inputs:NormalTexture = @Textures/Base Normals.jpg@
+        float inputs:RoughnessAmount = 0.2
+        float inputs:SpecularAmount = 0.2
+    }
+
+    def "Tracks" (
+        active = true
+        instanceable = true
+        references = </Root/ImageTextureMaterial>
+    )
+    {
+        token cullMode = "none" (
+            allowedTokens = ["unspecified", "none", "front", "back"]
+        )
+        asset inputs:DiffuseTexture = @Textures/Tracks Diffuse.jpg@
+        asset inputs:NormalTexture = @Textures/Tracks Normals.jpg@
+    }
+
+    def "Train" (
+        active = true
+        instanceable = true
+        references = </Root/ImageTextureMaterial>
+    )
+    {
+        asset inputs:DiffuseTexture = @Textures/Train Diffuse.jpg@
+        asset inputs:NormalTexture = @Textures/Train Normals.jpg@
+    }
+
+    def "Vegetation" (
+        active = true
+        instanceable = false
+        references = </Root/ImageTextureMaterial>
+    )
+    {
+        asset inputs:DiffuseTexture = @Textures/Vegetation Diffuse.png@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-750.6269, -86.5647)
+                    int stackingOrderInSubgraph = 92
+                }
+            }
+        )
+        asset inputs:NormalTexture = @Textures/Vegetation Normals.jpg@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-1124.551, 240.35246)
+                    int stackingOrderInSubgraph = 126
+                }
+            }
+        )
+        float inputs:RoughnessAmount (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-525.08215, 534.75464)
+                    int stackingOrderInSubgraph = 117
+                }
+            }
+        )
+        float inputs:SpecularAmount (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-532.6583, 635.2315)
+                    int stackingOrderInSubgraph = 115
+                }
+            }
+        )
+
+        over "NormalImage"
+        {
+            float2 ui:nodegraph:node:pos = (-849.4969, 310.60828)
+            int ui:nodegraph:node:stackingOrder = 121
+        }
+
+        over "NormalMapDecode"
+        {
+            float2 ui:nodegraph:node:pos = (-530.79895, 346.46048)
+            int ui:nodegraph:node:stackingOrder = 119
+        }
+
+        def Shader "UVTexture"
+        {
+            uniform token info:id = "ND_UsdUVTexture"
+            asset inputs:file.connect = </Root/Vegetation.inputs:DiffuseTexture>
+            float outputs:a
+            float outputs:b
+            float outputs:g
+            float2 ui:nodegraph:node:pos = (-564.3305, 841.3966)
+            int ui:nodegraph:node:stackingOrder = 111
+            string[] ui:nodegraph:realitykit:node:attributesShowingChildren = ["outputs:rgba"]
+        }
+
+        over "PBRSurface"
+        {
+            float inputs:clearcoat
+            float3 inputs:clearcoatNormal
+            float inputs:clearcoatRoughness
+            bool inputs:hasPremultipliedAlpha
+            float inputs:opacity.connect = </Root/Vegetation/UVTexture.outputs:a>
+            float inputs:opacityThreshold
+        }
+
+        over "DiffuseImage"
+        {
+            float2 ui:nodegraph:node:pos = (-395.99048, -62.207603)
+            int ui:nodegraph:node:stackingOrder = 90
+        }
+    }
+
+    def Material "Water"
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/Water/UsdPreviewSurface.outputs:surface>
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.07393015, 0.21065621, 0.46135616) (
+                colorSpace = "srgb_displayp3"
+            )
+            float inputs:opacity = 0.8
+            float inputs:roughness = 0.1
+            token outputs:surface
+        }
+    }
+
+    def "Station" (
+        active = true
+        instanceable = true
+        references = </Root/ImageTextureMaterial>
+    )
+    {
+        asset inputs:DiffuseTexture = @Textures/Station Diffuse.jpg@
+        asset inputs:NormalTexture = @Textures/Station Normals.jpg@
+    }
+
+    def "Terrain" (
+        active = true
+        instanceable = true
+        references = </Root/ImageTextureMaterial>
+    )
+    {
+        asset inputs:DiffuseTexture = @Textures/Base Diffuse.jpg@
+        asset inputs:NormalTexture = @Textures/Base Normals.jpg@
+    }
+}
+
